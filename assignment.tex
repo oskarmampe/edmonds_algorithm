@@ -80,7 +80,7 @@
 
 \vspace{\fill}
 
-There are two M-unsatured vertices, namely b2 and e6. Therefore, we initiate Edmond's algorithm starting by growing two alternative trres starting at these two vertices.
+There are two M-unsaturated vertices, namely b2 and e6. Therefore, I initiate Edmond's algorithm starting by growing two alternative trees starting at these two vertices.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% FIRST PASS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{center}
@@ -130,8 +130,8 @@ There are two M-unsatured vertices, namely b2 and e6. Therefore, we initiate Edm
     \end{minipage}
 \end{center}
 
-A blossom has been found. The blossom consists of vertices b2, b1, a2 and I shrink it to vertex $\alpha$.
-This way, we obtain the following graph:
+A blossom has been found. The blossom consists of vertices b2, a2, b1 and I shrink it to vertex $\alpha$.
+This way, I obtain the following graph:
 
 \begin{center}
     \begin{tikzpicture}[scale=1.5, bend angle=45, font=\sffamily]
@@ -192,7 +192,7 @@ This way, we obtain the following graph:
   \end{center}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% SECOND PASS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-$\alpha$ and e6 are M-unsatured, so I start growing the two alternative trees again.
+$\alpha$ and e6 are M-unsaturated, so I start growing the two alternative trees again.
   \begin{center}
     \begin{minipage}{.6\textwidth}
         \begin{tikzpicture}[level distance=15mm,
@@ -282,7 +282,7 @@ $\alpha$ and e6 are M-unsatured, so I start growing the two alternative trees ag
 \end{center}
 
 Another two blossoms have been found. One of them being containing $\alpha$, b3,  c3, c2, c1 I will shrink this to vertex $\beta$.
-The other blossom consists of e6, e5, e4, f6, f4 I will shrink this to vertex $\gamma$. The following graph is obtained:
+The other blossom consists of e6, e5, e4, f4, f6 I will shrink this to vertex $\gamma$. The following graph is obtained:
 \hspace{\fill}
 
 
@@ -534,7 +534,7 @@ The other blossom consists of e6, e5, e4, f6, f4 I will shrink this to vertex $\
         \end{minipage}
     \end{center}
 
-    An augmenting path has been found. The path being ($\delta$, e1, f2, $\gamma$). This can be further simplified, by first going around the first blossom \{$\beta$, d2, d1\} and the second blossom \{f4, f6, e6\}, making the augmenting path ($\beta$, d2, d1, e1, f2, f4, f6, e6). There is another blossom to traverse, for which I have chosen the path \{$\alpha$, c1, c2\} as it is the only alternative path do d2. This makes the path now ($\alpha$, c1, c2, d2, d1, e1, f2, f4, f6, e6). Finally, traversing the last blossom \{b2, a2, b1\} as it is the only alternative path to c1. Making the final path (b2, a2, b1, c1, c2, d2, d1, e1, f2, f4, f6, e6).
+    An augmenting path has been found. The path being ($\delta$, e1, f2, $\gamma$). This can be further simplified, by first going around the first blossom \{$\beta$, d2, d1\} and the second blossom \{f4, f6, e6\}, making the augmenting path ($\beta$, d2, d1, e1, f2, f4, f6, e6). There is another blossom to traverse, for which I have chosen the path \{$\alpha$, c1, c2\} as it is the only alternative path do d2. This makes the path now ($\alpha$, c1, c2, d2, d1, e1, f2, f4, f6, e6). Finally, I traverse the last blossom \{b2, a2, b1\} as it is the only alternative path to c1. Making the final path (b2, a2, b1, c1, c2, d2, d1, e1, f2, f4, f6, e6). I augment the mathicng along the path, and find this following matching:
     \begin{center}
         \begin{tikzpicture}[scale=1.5, bend angle=45, font=\sffamily]
           \foreach \n/\x in {a/1, b/2, c/4, d/5, e/7,f/8} {
@@ -575,6 +575,8 @@ The other blossom consists of e6, e5, e4, f6, f4 I will shrink this to vertex $\
         \end{tikzpicture}
       \end{center}
 \end{center}
+
+This is the graph resulting from augmenting the matching along the path. Since there are no more M-unsaturated vertices the algorithm is stopped. The current matching is the maximum one.
 
 
 
